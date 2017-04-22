@@ -42,10 +42,11 @@ Calculator.prototype.get = function() {
 }
 
 //TreeNode constructor
-function TreeNode(name) {
-    //get the children arguments from arguments variable
-    this.children = Array.prototype.slice.call(arguments, 1);
+function TreeNode(name, ...children) {
+    //using ES6 "..."; otherwise, to get children in (unknown num of arguments), would use:
+    //this.children = Array.prototype.slice.call(arguments, 1);
     this.name = name;
+    this.children = children;
 }
 
 Calculator.prototype.parseExpression = function() {
